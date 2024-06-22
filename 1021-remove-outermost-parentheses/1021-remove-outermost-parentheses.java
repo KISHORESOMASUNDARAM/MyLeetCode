@@ -4,16 +4,17 @@ class Solution {
         char c;
         String str="";
         for(int i=0;i<s.length();i++){
-            if(s.charAt(i)=='('){
+            c=s.charAt(i);
+            if(c=='('){
                 if(k!=1){
-                    str+=s.charAt(i);
+                    str+=c;
                 }
                 k++;
             }
-            else if(s.charAt(i)==')'){
+            else if(c==')'){
                 k--;
                 if(k!=1){
-                    str+=s.charAt(i);
+                    str+=c;
                 }
             }
         }
