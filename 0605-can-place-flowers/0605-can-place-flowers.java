@@ -1,11 +1,20 @@
 class Solution {
     public boolean canPlaceFlowers(int[] fl, int n) {
-        
-        for(int i=0;i<n-1;i+=n){
-            if(fl[i]!=fl[i+1]){
-                return false;
+        int cnt=0;
+
+        for(int i=0;i<fl.length;i++){
+            if(fl[i]==0){
+            boolean empty=(i==0 || fl[i-1]==0 );
+            boolean emptynxt=(i==fl.length-1 || fl[i+1]==0 );
+            if(empty && emptynxt){
+                fl[i]=1;
+                cnt++;
+                if(cnt>n){
+                    return true;
+                }
+             }
             }
         }
-        return true;
+        return cnt>=n;
     }
 }
